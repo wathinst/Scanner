@@ -1,0 +1,1 @@
+make: `E:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libZBarDecoder.so' is up to date.

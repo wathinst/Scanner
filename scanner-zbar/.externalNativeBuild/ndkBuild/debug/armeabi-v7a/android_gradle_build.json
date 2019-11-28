@@ -1,0 +1,170 @@
+{
+  "buildFiles": [
+    "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Android.mk",
+    "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003dE:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\Android\\Scanner\\scanner-zbar\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "libraries": {
+    "iconv-debug-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003dE:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\Android\\Scanner\\scanner-zbar\\build\\intermediates\\ndkBuild\\debug\\lib E:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libiconv.so",
+      "toolchain": "toolchain-armeabi-v7a",
+      "abi": "armeabi-v7a",
+      "artifactName": "iconv",
+      "files": [
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\lib\\iconv.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\lib\\relocatable.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\libcharset\\lib\\localcharset.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        }
+      ],
+      "output": "E:\\Android\\Scanner\\scanner-zbar\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\armeabi-v7a\\libiconv.so"
+    },
+    "ZBarDecoder-debug-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003dE:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dE:\\Android\\Scanner\\scanner-zbar\\build\\intermediates\\ndkBuild\\debug\\lib E:/Android/Scanner/scanner-zbar/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libZBarDecoder.so",
+      "toolchain": "toolchain-armeabi-v7a",
+      "abi": "armeabi-v7a",
+      "artifactName": "ZBarDecoder",
+      "files": [
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\lib\\iconv.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\lib\\relocatable.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\libiconv-1.14\\libcharset\\lib\\localcharset.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/libcharset/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wno-multichar -D_ANDROID -DLIBDIR\u003d\"c\" -DBUILDING_LIBICONV -DBUILDING_LIBCHARSET -DIN_LIBRARY -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\config.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\convert.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\codabar.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\code128.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\code39.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\code93.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\databar.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\ean.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\i25.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\decoder\\qr_finder.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\error.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\image.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\img_scanner.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\bch15_5.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\binarize.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\isaac.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\qrdec.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\qrdectxt.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\rs.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\qrcode\\util.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\refcnt.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\scanner.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\symbol.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\video.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbar\\video\\null.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        },
+        {
+          "src": "E:\\Android\\Scanner\\scanner-zbar\\src\\main\\jni\\zbarjni.c",
+          "flags": "-target armv7-none-linux-androideabi16 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/Administrator/AppData/Local/Android/Sdk/ndk-bundle/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fpic -march\u003darmv7-a -mthumb -O0 -UNDEBUG -fno-limit-debug-info -IE:/Android/Scanner/scanner-zbar/src/main/jni/include -IE:/Android/Scanner/scanner-zbar/src/main/jni/zbar -IE:/Android/Scanner/scanner-zbar/src/main/jni/libiconv-1.14/include -IE:/Android/Scanner/scanner-zbar/src/main/jni -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        }
+      ],
+      "output": "E:\\Android\\Scanner\\scanner-zbar\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\armeabi-v7a\\libZBarDecoder.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-armeabi-v7a": {
+      "cCompilerExecutable": "C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\ndk-bundle\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

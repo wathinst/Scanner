@@ -16,10 +16,10 @@
 
 package com.dtr.zxing.decode;
 
+import android.graphics.Rect;
+import android.hardware.Camera;
 import android.os.Handler;
 import android.os.Looper;
-
-import com.dtr.zxing.activity.CaptureActivity;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 
@@ -39,19 +39,22 @@ public class DecodeThread extends Thread {
 
 	public static final String BARCODE_BITMAP = "barcode_bitmap";
 
-	/* 定义三种模式：条形码、二维码、全部  */
+	/** 定义三种模式：条形码、二维码、全部  */
 	public static final int BARCODE_MODE = 0X100;
 	public static final int QRCODE_MODE = 0X200;
 	public static final int ALL_MODE = 0X300;
 
-	private final CaptureActivity activity;
 	private final Map<DecodeHintType, Object> hints;
-	private Handler handler;
 	private final CountDownLatch handlerInitLatch;
+	private Handler mHandler;
+	private Rect mRect;
+	private Camera.Size mSize;
 
-	public DecodeThread(CaptureActivity activity, int decodeMode) {
+	public DecodeThread(int decodeMode, Rect rect, Camera.Size size, Handler handler) {
 
-		this.activity = activity;
+		mHandler = handler;
+		mRect = rect;
+		mSize = size;
 		handlerInitLatch = new CountDownLatch(1);
 
 		hints = new EnumMap<DecodeHintType, Object>(DecodeHintType.class);
@@ -87,13 +90,13 @@ public class DecodeThread extends Thread {
 		} catch (InterruptedException ie) {
 			// continue?
 		}
-		return handler;
+		return mHandler;
 	}
 
 	@Override
 	public void run() {
 		Looper.prepare();
-		handler = new DecodeHandler(activity, hints);
+		mHandler = new DecodeHandler(hints, mRect, mSize, mHandler);
 		handlerInitLatch.countDown();
 		Looper.loop();
 	}

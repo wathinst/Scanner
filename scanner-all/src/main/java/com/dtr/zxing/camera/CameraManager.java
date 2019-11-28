@@ -41,14 +41,23 @@ public class CameraManager {
 
 	private static final String TAG = CameraManager.class.getSimpleName();
 
+	private static CameraManager cameraManager;
+
 	private final Context context;
 	private final CameraConfigurationManager configManager;
 	private Camera camera;
 	private AutoFocusManager autoFocusManager;
 
+	public static int FRAME_WIDTH = -1;
+	public static int FRAME_HEIGHT = -1;
+	public static int FRAME_MARGINTOP = -1;
+
 	private boolean initialized;
 	private boolean previewing;
 	private int requestedCameraId = -1;
+
+	private Rect framingRect;
+	private Rect framingRectInPreview;
 
 	/**
 	 * Preview frames are delivered here, which we pass on to the registered
@@ -56,6 +65,26 @@ public class CameraManager {
 	 * message.
 	 */
 	private final PreviewCallback previewCallback;
+
+	/**
+	 * Initializes this static object with the Context of the calling Activity.
+	 *
+	 * @param context The Activity which wants to use the camera.
+	 */
+	public static void init(Context context) {
+		if (cameraManager == null) {
+			cameraManager = new CameraManager(context);
+		}
+	}
+
+	/**
+	 * Gets the CameraManager singleton instance.
+	 *
+	 * @return A reference to the CameraManager singleton.
+	 */
+	public static CameraManager get() {
+		return cameraManager;
+	}
 
 	public CameraManager(Context context) {
 		this.context = context;
@@ -186,8 +215,52 @@ public class CameraManager {
 		}
 	}
 
+	/**
+	 * Calculates the framing rect which the UI should draw to show the user where to place the
+	 * barcode. This target helps with alignment as well as forces the user to hold the device
+	 * far enough away to ensure the image will be in focus.
+	 *
+	 * @return The rectangle to draw on screen in window coordinates.
+	 */
+	public Rect getFramingRect() {
+		try {
+			Point screenResolution = configManager.getScreenResolution();
+			if (camera == null) {
+				return null;
+			}
+
+			int leftOffset = (screenResolution.x - FRAME_WIDTH) / 2;
+
+			int topOffset;
+			if (FRAME_MARGINTOP != -1) {
+				topOffset = FRAME_MARGINTOP;
+			} else {
+				topOffset = (screenResolution.y - FRAME_HEIGHT) / 2;
+			}
+			framingRect = new Rect(leftOffset, topOffset, leftOffset + FRAME_WIDTH, topOffset + FRAME_HEIGHT);
+			return framingRect;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	/**
+	 * Like {@link #getFramingRect} but coordinates are in terms of the preview frame,
+	 * not UI / screen.
+	 */
 	public synchronized Rect getFramingRectInPreview(){
-		return null;
+		if (framingRectInPreview == null) {
+			Rect rect = new Rect(getFramingRect());
+			Point cameraResolution = configManager.getCameraResolution();
+			Point screenResolution = configManager.getScreenResolution();
+			rect.left = rect.left * cameraResolution.y / screenResolution.x;
+			rect.right = rect.right * cameraResolution.y / screenResolution.x;
+			rect.top = rect.top * cameraResolution.x / screenResolution.y;
+			rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+			framingRectInPreview = rect;
+		}
+		return framingRectInPreview;
 	}
 
 
@@ -217,6 +290,10 @@ public class CameraManager {
 			return camera.getParameters().getPreviewSize();
 		}
 		return null;
+	}
+
+	public Camera getCamera() {
+		return camera;
 	}
 
 	/**

@@ -29,7 +29,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.dtr.zxing.activity.CaptureActivity;
+
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -50,16 +50,21 @@ import net.sourceforge.zbar.SymbolSet;
  */
 public class DecodeHandler extends Handler {
 
-	private final CaptureActivity activity;
 	private final MultiFormatReader multiFormatReader;
 	private boolean running = true;
+	private Handler mHandler;
+	private Rect mRect;
+	private Size mSize;
 
 	private ImageScanner mImageScanner = null;
 
-	public DecodeHandler(CaptureActivity activity, Map<DecodeHintType, Object> hints) {
+	public DecodeHandler(Map<DecodeHintType, Object> hints, Rect rect, Size size, Handler handler) {
+		mHandler = handler;
+		mRect = rect;
+		mSize = size;
+
 		multiFormatReader = new MultiFormatReader();
 		multiFormatReader.setHints(hints);
-		this.activity = activity;
 
 		mImageScanner = new ImageScanner();
 		mImageScanner.setConfig(0, Config.X_DENSITY, 3);
@@ -94,13 +99,14 @@ public class DecodeHandler extends Handler {
 	 *            The height of the preview frame.
 	 */
 	private void decode(byte[] data, int width, int height) {
-		Size size = activity.getCameraManager().getPreviewSize();
+		//Size size = activity.getCameraManager().getPreviewSize();
 
 		// 这里需要将获取的data翻转一下，因为相机默认拿的的横屏的数据
 		byte[] rotatedData = new byte[data.length];
-		for (int y = 0; y < size.height; y++) {
-			for (int x = 0; x < size.width; x++)
-				rotatedData[x * size.height + size.height - y - 1] = data[x + y * size.width];
+		for (int y = 0; y < mSize.height; y++) {
+			for (int x = 0; x < mSize.width; x++) {
+				rotatedData[x * mSize.height + mSize.height - y - 1] = data[x + y * mSize.width];
+			}
 		}
 
 		//先用zxing解码		
@@ -108,9 +114,9 @@ public class DecodeHandler extends Handler {
 		result = result || decodeByZbar(rotatedData);
 		if(!result){
 			//如果 都解码失败，则发送消息
-			Handler handler = activity.getHandler();
-			if (handler != null) {
-				Message message = Message.obtain(handler, R.id.decode_failed);
+			Log.d("zbar-decode", "decode failed");
+			if (mHandler != null) {
+				Message message = Message.obtain(mHandler, R.id.decode_failed);
 				message.sendToTarget();
 			}
 		}	
@@ -119,7 +125,7 @@ public class DecodeHandler extends Handler {
 	private boolean decodeByZXing(byte[] rotatedData, int width, int height){
 		boolean result = false;
 		Result rawResult = null;
-		MyPlanarYUVLuminanceSource source = activity.buildLuminanceSource(rotatedData, height, width);
+		MyPlanarYUVLuminanceSource source = buildLuminanceSource(rotatedData, height, width);
 		if (source != null) {
 			BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
 			//先用 高级算法进行二值化
@@ -144,12 +150,12 @@ public class DecodeHandler extends Handler {
 			}
 		}
 
-		Handler handler = activity.getHandler();
 		if (rawResult != null) {			
 			// Don't log the barcode contents for security.
-			if (handler != null) {
+			Log.d("zxing-decode", "resultStr:" + rawResult);
+			if (mHandler != null) {
 				result = true;
-				Message message = Message.obtain(handler, R.id.decode_succeeded,rawResult);
+				Message message = Message.obtain(mHandler, R.id.decode_succeeded,rawResult);
 				Bundle bundle = new Bundle();
 				bundleThumbnail(source, bundle);
 				message.setData(bundle);
@@ -162,21 +168,18 @@ public class DecodeHandler extends Handler {
 	}
 
 	private boolean decodeByZbar(byte[] rotatedData){
-		Size size = activity.getCameraManager().getPreviewSize();
 		// 宽高也要调整
-		int tmp = size.width;
-		size.width = size.height;
-		size.height = tmp;
+		int tmp = mSize.width;
+		mSize.width = mSize.height;
+		mSize.height = tmp;
 
-		Image barcode = new Image(size.width, size.height,"Y800");
+		Image barcode = new Image(mSize.width, mSize.height,"Y800");
 		barcode.setData(rotatedData);
-
-		Rect rect = activity.getCropRect();
-		if(rect == null) {
+		if(mRect == null) {
 			Log.d("zbar-decode", "剪切面积为空！");
 			return false;
 		}
-		barcode.setCrop(rect.left, rect.top, rect.width(),rect.height());
+		barcode.setCrop(mRect.left, mRect.top, mRect.width(), mRect.height());
 
 		int result = mImageScanner.scanImage(barcode);
 		String resultStr = null;
@@ -188,9 +191,9 @@ public class DecodeHandler extends Handler {
 			}
 		}
 		if (!TextUtils.isEmpty(resultStr)) {
-			Handler handler = activity.getHandler();
-			if (handler != null) {
-				Message message = Message.obtain(handler, R.id.decode_succeeded_zbar,resultStr);
+			Log.d("zbar-decode", "resultStr:" + resultStr);
+			if (mHandler != null) {
+				Message message = Message.obtain(mHandler, R.id.decode_succeeded_zbar, resultStr);
 				message.sendToTarget();
 			}
 			return true;
@@ -212,6 +215,14 @@ public class DecodeHandler extends Handler {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		bitmap.compress(Bitmap.CompressFormat.JPEG, 50, out);		
 		bundle.putByteArray(DecodeThread.BARCODE_BITMAP, out.toByteArray());
+	}
+
+	public MyPlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
+		//根据取景框 裁剪数据
+		if (mRect == null) {
+			return null;
+		}
+		return new MyPlanarYUVLuminanceSource(data, width, height, mRect.left, mRect.top, mRect.width(), mRect.height(), false);
 	}
 
 }

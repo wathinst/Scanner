@@ -27,12 +27,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        String sn = data.getStringExtra("sn");
-
-        TextView tv = (TextView)findViewById(R.id.textview_msg);
-        tv.setText(sn);
-
-        Toast.makeText(this,sn,Toast.LENGTH_LONG).show();
+        if (data != null) {
+            if (data.hasExtra("sn")) {
+                String sn = data.getStringExtra("sn");
+                if (sn != null) {
+                    TextView tv = (TextView) findViewById(R.id.textview_msg);
+                    if (tv != null) {
+                        tv.setText(sn);
+                    }
+                    Toast.makeText(this, sn, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 }

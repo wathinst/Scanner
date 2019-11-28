@@ -18,6 +18,7 @@ package com.dtr.zxing.activity;
 
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,9 +39,9 @@ import com.phynos.scanner.all.R;
  * 
  * @author dswitkin@google.com (Daniel Switkin)
  */
-public class CaptureActivityHandler extends Handler {
+public class CaptureFragmentHandler extends Handler {
 
-	private final CaptureActivity activity;
+	private final CaptureFragment fragment;
 	private final DecodeThread decodeThread;
 	private final CameraManager cameraManager;
 	private State state;
@@ -54,9 +55,9 @@ public class CaptureActivityHandler extends Handler {
 		DONE
 	}
 
-	public CaptureActivityHandler(CaptureActivity activity, CameraManager cameraManager, int decodeMode) {
-		this.activity = activity;
-		decodeThread = new DecodeThread(decodeMode, activity.getCropRect(), activity.getCameraManager().getPreviewSize(), activity.getHandler());
+	public CaptureFragmentHandler(CaptureFragment fragment, CameraManager cameraManager, int decodeMode) {
+		this.fragment = fragment;
+		decodeThread = new DecodeThread(decodeMode,fragment.getCropRect(),fragment.getPreviewSize() , fragment.getHandler());
 		decodeThread.start();
 		state = State.SUCCESS;
 
@@ -83,20 +84,20 @@ public class CaptureActivityHandler extends Handler {
 					barcode = barcode.copy(Bitmap.Config.ARGB_8888, true);
 				}
 			}
-			Toast.makeText(activity, ((Result) message.obj).getText(), Toast.LENGTH_SHORT).show();
-			activity.handleDecode((Result) message.obj, barcode);
+			//Toast.makeText(fragment, ((Result) message.obj).getText(), Toast.LENGTH_SHORT).show();
+			fragment.handleDecode((Result) message.obj, barcode);
 
 		} else if(message.what == R.id.decode_succeeded_zbar){
 			state = State.SUCCESS;
-			activity.handleDecode((String)message.obj);
+			//fragment.handleDecode((String)message.obj);
 		} else if (message.what == R.id.decode_failed) {
 			// We're decoding as fast as possible, so when one decode fails,
 			// start another.
 			state = State.PREVIEW;
 			cameraManager.requestPreviewFrame(decodeThread.getHandler(), R.id.decode);
 		} else if (message.what == R.id.return_scan_result) {
-			activity.setResult(Activity.RESULT_OK, (Intent) message.obj);
-			activity.finish();
+			fragment.getActivity().setResult(Activity.RESULT_OK, (Intent) message.obj);
+			fragment.getActivity().finish();
 		}
 	}
 

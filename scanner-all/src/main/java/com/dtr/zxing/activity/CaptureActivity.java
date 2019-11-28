@@ -96,7 +96,8 @@ SurfaceHolder.Callback, OnClickListener {
 	private CaptureActivityHandler handler;
 	private InactivityTimer inactivityTimer;
 	private BeepManager beepManager;
-	private ImageView mImageLight;//开灯按钮
+	/** 开灯按钮 */
+	private ImageView mImageLight;
 	private SurfaceView scanPreview = null;
 	
 	private RelativeLayout scanCropView;
