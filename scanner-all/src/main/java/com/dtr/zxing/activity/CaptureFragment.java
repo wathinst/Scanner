@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 
 import com.dtr.zxing.camera.CameraManager;
 import com.dtr.zxing.decode.DecodeThread;
+import com.dtr.zxing.decode.MyPlanarYUVLuminanceSource;
 import com.dtr.zxing.utils.CodeUtils;
 import com.dtr.zxing.utils.InactivityTimer;
 import com.dtr.zxing.view.ViewfinderView;
@@ -282,6 +283,16 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
          * @param e If is's null,means success.otherwise Camera init failed with the Exception.
          */
         void callBack(Exception e);
+    }
+
+    public MyPlanarYUVLuminanceSource buildLuminanceSource(byte[] data, int width, int height) {
+        //根据取景框 裁剪数据
+        Rect rect = getCropRect();
+        if (rect == null) {
+            return null;
+        }
+        // Go ahead and assume it's YUV rather than die.
+        return new MyPlanarYUVLuminanceSource(data, width, height, rect.left, rect.top, rect.width(), rect.height(), false);
     }
 
 

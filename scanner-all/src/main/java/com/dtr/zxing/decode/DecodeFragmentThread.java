@@ -18,8 +18,7 @@ package com.dtr.zxing.decode;
 
 import android.os.Handler;
 import android.os.Looper;
-
-import com.dtr.zxing.activity.CaptureActivity;
+import com.dtr.zxing.activity.CaptureFragment;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
 
@@ -35,23 +34,23 @@ import java.util.concurrent.CountDownLatch;
  * 解码的线程，真正的解码相关工作在其关联的handle中处理
  * @author dswitkin@google.com (Daniel Switkin)
  */
-public class DecodeThread extends Thread {
+public class DecodeFragmentThread extends Thread {
 
 	public static final String BARCODE_BITMAP = "barcode_bitmap";
 
-	/* 定义三种模式：条形码、二维码、全部  */
+	/** 定义三种模式：条形码、二维码、全部  */
 	public static final int BARCODE_MODE = 0X100;
 	public static final int QRCODE_MODE = 0X200;
 	public static final int ALL_MODE = 0X300;
 
-	private final CaptureActivity activity;
+	private final CaptureFragment fragment;
 	private final Map<DecodeHintType, Object> hints;
 	private Handler handler;
 	private final CountDownLatch handlerInitLatch;
 
-	public DecodeThread(CaptureActivity activity, int decodeMode) {
+	public DecodeFragmentThread(CaptureFragment fragment, int decodeMode) {
 
-		this.activity = activity;
+		this.fragment = fragment;
 		handlerInitLatch = new CountDownLatch(1);
 
 		hints = new EnumMap<DecodeHintType, Object>(DecodeHintType.class);
@@ -93,7 +92,7 @@ public class DecodeThread extends Thread {
 	@Override
 	public void run() {
 		Looper.prepare();
-		handler = new DecodeHandler(activity, hints);
+		handler = new DecodeFragmentHandler(fragment, hints);
 		handlerInitLatch.countDown();
 		Looper.loop();
 	}

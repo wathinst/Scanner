@@ -16,9 +16,6 @@
 
 package com.dtr.zxing.decode;
 
-import java.io.ByteArrayOutputStream;
-import java.util.Map;
-
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.hardware.Camera.Size;
@@ -30,6 +27,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.dtr.zxing.activity.CaptureActivity;
+import com.dtr.zxing.activity.CaptureFragment;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -45,21 +43,24 @@ import net.sourceforge.zbar.ImageScanner;
 import net.sourceforge.zbar.Symbol;
 import net.sourceforge.zbar.SymbolSet;
 
+import java.io.ByteArrayOutputStream;
+import java.util.Map;
+
 /**
  * 真正的解码操作 相关代码
  */
-public class DecodeHandler extends Handler {
+public class DecodeFragmentHandler extends Handler {
 
-    private final CaptureActivity activity;
+    private final CaptureFragment fragment;
     private final MultiFormatReader multiFormatReader;
     private boolean running = true;
 
     private ImageScanner mImageScanner = null;
 
-    public DecodeHandler(CaptureActivity activity, Map<DecodeHintType, Object> hints) {
+    public DecodeFragmentHandler(CaptureFragment fragment, Map<DecodeHintType, Object> hints) {
         multiFormatReader = new MultiFormatReader();
         multiFormatReader.setHints(hints);
-        this.activity = activity;
+        this.fragment = fragment;
 
         mImageScanner = new ImageScanner();
         mImageScanner.setConfig(0, Config.X_DENSITY, 3);
@@ -94,7 +95,7 @@ public class DecodeHandler extends Handler {
      *            The height of the preview frame.
      */
     private void decode(byte[] data, int width, int height) {
-        Size size = activity.getCameraManager().getPreviewSize();
+        Size size = fragment.getPreviewSize();
 
         // 这里需要将获取的data翻转一下，因为相机默认拿的的横屏的数据
         byte[] rotatedData = new byte[data.length];
@@ -108,7 +109,7 @@ public class DecodeHandler extends Handler {
         result = result || decodeByZbar(rotatedData);
         if(!result){
             //如果 都解码失败，则发送消息
-            Handler handler = activity.getHandler();
+            Handler handler = fragment.getHandler();
             if (handler != null) {
                 Message message = Message.obtain(handler, R.id.decode_failed);
                 message.sendToTarget();
@@ -119,7 +120,7 @@ public class DecodeHandler extends Handler {
     private boolean decodeByZXing(byte[] rotatedData, int width, int height){
         boolean result = false;
         Result rawResult = null;
-        MyPlanarYUVLuminanceSource source = activity.buildLuminanceSource(rotatedData, height, width);
+        MyPlanarYUVLuminanceSource source = fragment.buildLuminanceSource(rotatedData, height, width);
         if (source != null) {
             BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
             //先用 高级算法进行二值化
@@ -144,7 +145,7 @@ public class DecodeHandler extends Handler {
             }
         }
 
-        Handler handler = activity.getHandler();
+        Handler handler = fragment.getHandler();
         if (rawResult != null) {
             // Don't log the barcode contents for security.
             if (handler != null) {
@@ -162,7 +163,7 @@ public class DecodeHandler extends Handler {
     }
 
     private boolean decodeByZbar(byte[] rotatedData){
-        Size size = activity.getCameraManager().getPreviewSize();
+        Size size = fragment.getPreviewSize();
         // 宽高也要调整
         int tmp = size.width;
         size.width = size.height;
@@ -171,7 +172,7 @@ public class DecodeHandler extends Handler {
         Image barcode = new Image(size.width, size.height,"Y800");
         barcode.setData(rotatedData);
 
-        Rect rect = activity.getCropRect();
+        Rect rect = fragment.getCropRect();
         if(rect == null) {
             Log.d("zbar-decode", "剪切面积为空！");
             return false;
@@ -188,7 +189,7 @@ public class DecodeHandler extends Handler {
             }
         }
         if (!TextUtils.isEmpty(resultStr)) {
-            Handler handler = activity.getHandler();
+            Handler handler = fragment.getHandler();
             if (handler != null) {
                 Message message = Message.obtain(handler, R.id.decode_succeeded_zbar,resultStr);
                 message.sendToTarget();

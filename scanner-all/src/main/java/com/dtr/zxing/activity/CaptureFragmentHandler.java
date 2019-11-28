@@ -28,6 +28,7 @@ import android.os.Message;
 import android.widget.Toast;
 
 import com.dtr.zxing.camera.CameraManager;
+import com.dtr.zxing.decode.DecodeFragmentThread;
 import com.dtr.zxing.decode.DecodeThread;
 import com.google.zxing.Result;
 import com.phynos.scanner.all.R;
@@ -42,7 +43,7 @@ import com.phynos.scanner.all.R;
 public class CaptureFragmentHandler extends Handler {
 
 	private final CaptureFragment fragment;
-	private final DecodeThread decodeThread;
+	private final DecodeFragmentThread decodeThread;
 	private final CameraManager cameraManager;
 	private State state;
 
@@ -57,7 +58,7 @@ public class CaptureFragmentHandler extends Handler {
 
 	public CaptureFragmentHandler(CaptureFragment fragment, CameraManager cameraManager, int decodeMode) {
 		this.fragment = fragment;
-		decodeThread = new DecodeThread(decodeMode,fragment.getCropRect(),fragment.getPreviewSize() , fragment.getHandler());
+		decodeThread = new DecodeFragmentThread(fragment, decodeMode);
 		decodeThread.start();
 		state = State.SUCCESS;
 
