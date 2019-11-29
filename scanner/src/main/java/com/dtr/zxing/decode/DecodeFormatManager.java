@@ -36,6 +36,9 @@ public class DecodeFormatManager {
 	public static final Vector<BarcodeFormat> QR_CODE_FORMATS;
 	public static final Vector<BarcodeFormat> DATA_MATRIX_FORMATS;
 
+	// 二维码解码
+	private static final Set<BarcodeFormat> INDUSTRIAL_FORMATS;
+
 	static {
 		PRODUCT_FORMATS = new Vector<BarcodeFormat>(5);
 		PRODUCT_FORMATS.add(BarcodeFormat.UPC_A);
@@ -53,6 +56,8 @@ public class DecodeFormatManager {
 		QR_CODE_FORMATS.add(BarcodeFormat.QR_CODE);
 		DATA_MATRIX_FORMATS = new Vector<BarcodeFormat>(1);
 		DATA_MATRIX_FORMATS.add(BarcodeFormat.DATA_MATRIX);
+
+		INDUSTRIAL_FORMATS = EnumSet.of(BarcodeFormat.CODE_39, BarcodeFormat.CODE_93, BarcodeFormat.CODE_128, BarcodeFormat.ITF, BarcodeFormat.CODABAR);
 	}
 
 	private DecodeFormatManager() {
@@ -103,5 +108,13 @@ public class DecodeFormatManager {
 			}
 		}
 		return null;
+	}
+
+	public static Collection<BarcodeFormat> getQrCodeFormats() {
+		return QR_CODE_FORMATS;
+	}
+
+	public static Collection<BarcodeFormat> getBarCodeFormats() {
+		return ONE_D_FORMATS;
 	}
 }
